@@ -1,8 +1,6 @@
 FROM node:24 AS installer
 COPY . /juice-shop
 WORKDIR /juice-shop
-RUN node -e "console.log(JSON.stringify(require('./frontend/package.json').scripts, null, 2))"
-RUN node -e "console.log(JSON.stringify(require('./package.json').scripts, null, 2))"
 RUN npm install -g typescript@^6.0.3
 RUN npm install --omit=dev --foreground-scripts
 RUN npm dedupe --omit=dev
