@@ -25,7 +25,7 @@ jobs:
 
     - run: az acr login --name acrdevsecops${{ secrets.LABINSTANCEID }}
 
-    - run: docker build . -t acrdevsecops${{ secrets.LABINSTANCEID }}.azurecr.io/devsecops:${{ github.run_id }}
+    - run: docker build . --no-cache --progress=plain -t acrdevsecops${{ secrets.LABINSTANCEID }}.azurecr.io/devsecops:${{ github.run_id }}
     
     - run: docker push acrdevsecops${{ secrets.LABINSTANCEID }}.azurecr.io/devsecops:${{ github.run_id }}
 
